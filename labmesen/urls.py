@@ -16,7 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from labmesen.views import StaffList, StaffDetail, StatusesDetail, RoomDetail, RoomsList
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('statuses/<int:pk>', StatusesDetail.as_view()),
+    path('staff/', StaffList.as_view()),
+    path('staff/<int:pk>/', StaffDetail.as_view()),
+    path('rooms/', RoomsList.as_view()),
+    path('rooms/<int:pk>/', RoomDetail.as_view()),
 ]
