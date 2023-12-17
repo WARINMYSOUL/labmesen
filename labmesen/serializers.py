@@ -1,20 +1,26 @@
 from rest_framework import serializers
-from DjangoDB.models import Staff, Statuses, Rooms
+from DjangoDB import models
 
 
 class StatusSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Statuses
+        model = models.Statuses
         fields = '__all__'
 
 
 class StaffSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Staff
+        model = models.Staff
         fields = '__all__'
 
 
 class RoomsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Rooms
+        model = models.Rooms
+        fields = '__all__'
+
+
+class AuthUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.AuthUser
         fields = '__all__'

@@ -158,7 +158,8 @@ class Events(models.Model):
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
     client = models.ForeignKey(Clients, models.DO_NOTHING, blank=True, null=True)
-    total_cost = models.DecimalField(max_digits=10, decimal_places=5, blank=True, null=True)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    total_cost = models.DecimalField(max_digits=10, decimal_places=5, blank=True,
+                                     null=True)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
 
     class Meta:
         managed = False
@@ -187,7 +188,8 @@ class Inventory(models.Model):
 
 
 class InventoryRelationship(models.Model):
-    room = models.OneToOneField('Rooms', models.DO_NOTHING, primary_key=True)  # The composite primary key (room_id, inventory_id) found, that is not supported. The first column is selected.
+    room = models.OneToOneField('Rooms', models.DO_NOTHING,
+                                primary_key=True)  # The composite primary key (room_id, inventory_id) found, that is not supported. The first column is selected.
     inventory = models.ForeignKey(Inventory, models.DO_NOTHING)
 
     class Meta:
@@ -212,7 +214,8 @@ class Payments(models.Model):
     reservation = models.ForeignKey('Reservations', models.DO_NOTHING, blank=True, null=True)
     event = models.ForeignKey(Events, models.DO_NOTHING, blank=True, null=True)
     payment_method = models.TextField()
-    amount = models.DecimalField(max_digits=10, decimal_places=5)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    amount = models.DecimalField(max_digits=10,
+                                 decimal_places=5)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     payment_date = models.DateTimeField(blank=True, null=True)
 
     class Meta:
@@ -258,7 +261,8 @@ class Reviews(models.Model):
 
 
 class RoomFeatureRelationship(models.Model):
-    room = models.OneToOneField('Rooms', models.DO_NOTHING, primary_key=True)  # The composite primary key (room_id, feature_id) found, that is not supported. The first column is selected.
+    room = models.OneToOneField('Rooms', models.DO_NOTHING,
+                                primary_key=True)  # The composite primary key (room_id, feature_id) found, that is not supported. The first column is selected.
     feature = models.ForeignKey('RoomFeatures', models.DO_NOTHING)
 
     class Meta:
@@ -280,7 +284,8 @@ class Rooms(models.Model):
     room_id = models.AutoField(primary_key=True)
     room_number = models.TextField(unique=True)
     room_type = models.TextField()
-    rate = models.DecimalField(max_digits=10, decimal_places=5)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    rate = models.DecimalField(max_digits=10,
+                               decimal_places=5)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
 
     class Meta:
         managed = False
@@ -290,7 +295,8 @@ class Rooms(models.Model):
 class Service(models.Model):
     service_id = models.AutoField(primary_key=True)
     service_name = models.TextField(unique=True)
-    price = models.DecimalField(max_digits=10, decimal_places=5)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    price = models.DecimalField(max_digits=10,
+                                decimal_places=5)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
 
     class Meta:
         managed = False
