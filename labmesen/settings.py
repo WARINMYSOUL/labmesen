@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'labmesen.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': r'C:\JetBrainsDirectory\DataGrib\hostel 1.9\identifier.sqlite',
+        'NAME': r'C:\Users\floiz\PycharmProjects\labmesen\DB\identifier.sqlite',
     }
 }
 
@@ -124,6 +124,6 @@ REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
     ]
 }
